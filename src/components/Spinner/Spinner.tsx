@@ -1,4 +1,6 @@
 import React from "react";
+import classes from "./Spinner.module.css";
+
 export const Spinner = (props: { size?: "small" | "medium" | "large" }) => {
   const { size } = props;
   const spinnerSize =
@@ -12,11 +14,11 @@ export const Spinner = (props: { size?: "small" | "medium" | "large" }) => {
   return (
     <div
       className={`
-  spinner-grow inline-block bg-current ${spinnerSize} rounded-full opacity-0 text-purple-500
+   ${classes.spinnerGrow} inline-block bg-current ${spinnerSize} rounded-full opacity-0 text-purple-500
   `}
       role="status"
     >
-      <span className="visually-hidden">Loading...</span>
+      <span className="invisible">Loading...</span>
     </div>
   );
 };

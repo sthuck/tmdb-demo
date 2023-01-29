@@ -8,5 +8,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require('tw-elements/dist/plugin'), require('@tailwindcss/line-clamp'),],
+  plugins: [require('@tailwindcss/line-clamp'),],
 }

@@ -1,0 +1,14 @@
+@keyframes spinner-grow {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.spinnerGrow {
+  vertical-align: -0.125em;
+  animation:0.75s linear infinite spinner-grow;
+}

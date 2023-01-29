@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
   endpoints,
   RequestParams,
@@ -6,14 +5,8 @@ import {
   SupportedEndpoints,
 } from "./types";
 import { replacePathParams } from "./utils";
-
 export const createApiClient = (apiKey: string) => {
-  const api = axios.create({
-    baseURL: "https://api.themoviedb.org/3",
-    params: {
-      api_key: apiKey,
-    },
-  });
+  const baseURL = "https://api.themoviedb.org/3/";
 
   const apiClient = {} as {
     [K in SupportedEndpoints]: (
@@ -32,7 +25,13 @@ export const createApiClient = (apiKey: string) => {
         params
       );
 
-      const { data } = await api.get(newPath, { params: newParams, signal });
+      const data = await fetch(
+        baseURL +
+          newPath +
+          "?" +
+          new URLSearchParams({ ...newParams, api_key: apiKey }).toString(),
+        { signal }
+      ).then((res) => res.json());
       return data;
     };
   });
